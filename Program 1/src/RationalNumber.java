@@ -4,7 +4,7 @@
 //  Represents one rational number with a numerator and denominator.
 //********************************************************************
 
-public class RationalNumber
+public class RationalNumber implements Comparable<RationalNumber>
 {
     private int numerator, denominator;
 
@@ -160,6 +160,26 @@ public class RationalNumber
                 num2 = num2 - num1;
 
         return num1;
+    }
+    
+    //----------------------------------------------------------------------
+    //  Compares the current RationalNumber to the one passed in.
+    //  Returns 0 if equal, -1 if this < argument, and 1 if this > argument
+    //---------------------------------------------------------------------
+    @Override
+    public int compareTo(RationalNumber other) {
+    	double currentRational = (double) this.numerator / this.denominator;
+    	double otherRational = (double) other.numerator / other.denominator;
+        double tolerance = 0.0001;
+        
+        if (Math.abs(currentRational - otherRational) < tolerance) {
+            return 0; 
+        } else if (currentRational < otherRational) {
+            return -1; 
+        } else {
+            return 1;
+        }
+        
     }
     
     
