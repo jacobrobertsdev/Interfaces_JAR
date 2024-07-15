@@ -36,6 +36,7 @@ public class Process implements Priority, Comparable<Process>{
 
 	// Set priority
 	public void setPriority(int priority) {
+		
 		if(priority > MIN_PRIORITY && priority < MAX_PRIORITY) {
 			this.priority = priority;		
 		} else {
@@ -55,16 +56,16 @@ public class Process implements Priority, Comparable<Process>{
 	// compareTo implementation
 	@Override
 	public int compareTo(Process obj) {
+	      
+        if (this.priority == obj.priority) {
+            return 0; 
+        } else if (this.priority < obj.priority) {
+            return -1; 
+        } else {
+            return 1;
+        }
 	        
-	        if (this.priority == obj.priority) {
-	            return 0; 
-	        } else if (this.priority < obj.priority) {
-	            return -1; 
-	        } else {
-	            return 1;
-	        }
-	        
-	    }
+    }
 	
 	// End of compareTo
 	    
