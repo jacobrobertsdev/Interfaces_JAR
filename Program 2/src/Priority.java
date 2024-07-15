@@ -2,9 +2,9 @@
 public interface Priority {
 	
 // Constants
-int MED_PRIORITY = 1;
-int MAX_PRIORITY = 5;
-int MIN_PRIORITY = 10;
+int MED_PRIORITY = 5;
+int MAX_PRIORITY = 10;
+int MIN_PRIORITY = 1;
 
 
 //getPriority

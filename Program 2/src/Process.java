@@ -3,14 +3,21 @@ public class Process implements Priority, Comparable<Process>{
 	private String processID;
 	private int priority;
 	
+	// Constructors
 	
+	public Process() {
+		this.processID = "";
+		this.priority = 0;
+	}
 	
-	
-	public Process(String processID, int priority) {
+	public Process(String processID) {
 		this.processID = processID;
-		this.priority = priority;
+		this.priority = 0;
 	}
 
+	// End of constructors
+	
+	// Getters and Setters
 
 	public String getProcessID() {
 		return processID;
@@ -28,16 +35,25 @@ public class Process implements Priority, Comparable<Process>{
 
 	
 	public void setPriority(int priority) {
-		this.priority = priority;		
+		if(priority > MIN_PRIORITY && priority < MAX_PRIORITY) {
+			this.priority = priority;		
+		} else {
+			System.out.println("Priority must be set between 1 and 10 inclusive");
+		}
 	}
 
-
+	// End of Getters and Setters
+	
+	// toString implementation
+	
 	@Override
 	public String toString() {
 		return "Process [processID=" + processID + ", priority=" + priority + "]";
 	}
 	
+	// End of toString
 	
+	// compareTo implementation
 	@Override
 	public int compareTo(Process obj) {
 	        
@@ -50,6 +66,8 @@ public class Process implements Priority, Comparable<Process>{
 	        }
 	        
 	    }
+	
+	// End of compareTo
 	    
 	
 }

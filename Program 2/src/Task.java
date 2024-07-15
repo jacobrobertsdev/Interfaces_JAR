@@ -1,26 +1,29 @@
 
 public class Task implements Priority, Comparable<Task>{
 	
-private enum Status{ NOT_STARTED, IN_PROCESS, COMPLETE };
+public enum Status{ NOT_STARTED, IN_PROCESS, COMPLETE };
 
 private String name;
 private int priority;
-private Status status;
-
+private Status status = Status.NOT_STARTED;
 
 // Constructors
+
 public Task() {
 	this.name = "";
 	this.priority = 0;
-	this.status = null;
+	this.status = Status.NOT_STARTED;
 }
 
-public Task(String name, int priority, Status status) {
+public Task(String name) {
 	this.name = name;
-	this.priority = priority;
-	this.status = status;
+	this.priority = 0;
+	this.status = Status.NOT_STARTED;
+	
 }
-//End constructors
+
+//End of constructors
+
 
 // Getters and Setters
 
@@ -37,7 +40,11 @@ public int getPriority() {
 }
 
 public void setPriority(int priority) {
-	this.priority = priority;
+	if(priority >= MIN_PRIORITY && priority <= MAX_PRIORITY) {
+		this.priority = priority;		
+	} else {
+		System.out.println("Priority must be set between 1 and 10 inclusive");
+	}
 }
 
 public Status getStatus() {
@@ -48,14 +55,19 @@ public void setStatus(Status status) {
 	this.status = status;
 }
 
-//End getters and setters
+//End of getters and setters
 
+
+// toString implementation
 
 @Override
 public String toString() {
 	return "Task [name=" + name + ", priority=" + priority + ", status=" + status + "]";
 }
+// End of toString
 
+
+// compareTo implementation
 
 @Override
 public int compareTo(Task obj) {
@@ -69,9 +81,7 @@ public int compareTo(Task obj) {
         }
         
     }
-
-
-
+// End of compareTo
 
 
 }
