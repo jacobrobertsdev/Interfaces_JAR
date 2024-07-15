@@ -8,37 +8,39 @@ private int priority;
 private Status status = Status.NOT_STARTED;
 
 // Constructors
-
+// Empty-argument constructor
 public Task() {
 	this.name = "";
 	this.priority = 0;
 	this.status = Status.NOT_STARTED;
 }
 
+// Preferred constructor
 public Task(String name) {
 	this.name = name;
 	this.priority = 0;
 	this.status = Status.NOT_STARTED;
 	
 }
-
 //End of constructors
 
 
 // Getters and Setters
-
+// Get name
 public String getName() {
 	return name;
 }
-
+// Set name
 public void setName(String name) {
 	this.name = name;
 }
 
+// Get priority
 public int getPriority() {
 	return priority;
 }
 
+// Set priority
 public void setPriority(int priority) {
 	if(priority >= MIN_PRIORITY && priority <= MAX_PRIORITY) {
 		this.priority = priority;		
@@ -47,10 +49,12 @@ public void setPriority(int priority) {
 	}
 }
 
+// Get status
 public Status getStatus() {
 	return this.status;
 }
 
+// Set status
 public void setStatus(Status status) {
 	this.status = status;
 }
@@ -59,7 +63,6 @@ public void setStatus(Status status) {
 
 
 // toString implementation
-
 @Override
 public String toString() {
 	return "Task [name=" + name + ", priority=" + priority + ", status=" + status + "]";
@@ -68,7 +71,6 @@ public String toString() {
 
 
 // compareTo implementation
-
 @Override
 public int compareTo(Task obj) {
         
