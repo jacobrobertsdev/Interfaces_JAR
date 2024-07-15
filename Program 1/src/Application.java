@@ -4,7 +4,7 @@ public class Application {
 	public static void main(String[] args) {
 		 RationalNumber r1 = new RationalNumber(6, 8);
 	        RationalNumber r2 = new RationalNumber(1, 3);
-	        RationalNumber r3, r4, r5, r6, r7;
+	        RationalNumber r3;
 	        
 	        // Test compareTo
 	        r3 = new RationalNumber(1,3);
